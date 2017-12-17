@@ -1,0 +1,17 @@
+spec: "0.0"
+name: gadget-chip-io-rest
+uuid: a5aaf229-7381-4e3c-8c46-26b200bbaa68
+type: docker
+onboot: []
+services:
+- name: rest-api
+  uuid: 20dc34eb-e912-4285-a9c8-bb66e663a5ae
+  image: ""
+  directory: "./"
+  net: "host"
+  readonly: false
+  forking: false
+  command: ['python','chip_io_rest_access.py']
+  binds: ['/sys:/sys']
+  capabilities: ['SYS_RAWIO']
+  devices: ['/dev/mem']
